@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.leo.spider.data.dao.HouseDao" >
+
+	<select id="getCatalogList" resultType="Catalog">
+		SELECT id, url, name FROM t_catalog
+	</select>
+
+	<select id="getHouseDetailList" resultType="HouseDetail">
+		SELECT
+		a.id,a.catalog_id catalogId,a.url,a.title,a.text,DATE_FORMAT(a.last_update_time,'%Y-%m-%d %H:%i:%s') AS lastUpdateTimeStr,DATE_FORMAT(a.create_time,'%Y-%m-%d %H:%i:%s') AS createTimeStr,b.name AS catalogName
+		FROM t_house_detail a,t_catalog b
+		WHERE
+			a.catalog_id = b.id
+		AND a.create_time BETWEEN #{startDate} AND #{endDate}
+		<if test="keyword != null and keyword != ''">
+			AND a.title like CONCAT('%', #{keyword},'%')
+		</if>
+		ORDER BY a.id DESC
+	</select>
+    
+</mapper>
