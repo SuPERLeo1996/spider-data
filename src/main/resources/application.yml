@@ -6,7 +6,7 @@ spring:
     name: druidDataSource
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://106.14.25.134:3306/hogwarts?useUnicode=true&autoReconnect=true&rewriteBatchedStatements=TRUE&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true&serverTimezone=GMT%2B8
+    url: jdbc:mysql://172.17.0.1:3306/hogwarts?useUnicode=true&autoReconnect=true&rewriteBatchedStatements=TRUE&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true&serverTimezone=GMT%2B8
     username: root
     password: root
     druid:
