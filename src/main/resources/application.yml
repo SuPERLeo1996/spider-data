@@ -1,7 +1,11 @@
 server:
   port: 10001
+  servlet:
+    context-path: /spider-data
 
 spring:
+  application:
+    name: spider-data
   datasource:
     name: druidDataSource
     type: com.alibaba.druid.pool.DruidDataSource
