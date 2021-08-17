@@ -4,10 +4,10 @@ docker_server_addr="leo"
 docker_project="spider-data:v1"
 docker_name="spider-data"
 
-docker ps -a | grep ${docker_server_addr}/${docker_project} | awk '{print $1}'|xargs docker stop
-
-docker ps -a | grep ${docker_server_addr}/${docker_project} | awk '{print $1}'|xargs docker -f rm
-
+docker ps -a | grep ${docker_server_addr}/${docker_project} | awk '{print $1}'|xargs docker stop &&
+echo "容器已停止！！！！！！！！"
+docker ps -a | grep ${docker_server_addr}/${docker_project} | awk '{print $1}'|xargs docker -f rm &&
+echo "旧容器已删除！！！！！！！！"
 file=`cd "\`dirname $0\`";pwd`
 
 git pull
